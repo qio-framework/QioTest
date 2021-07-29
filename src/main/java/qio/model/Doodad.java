@@ -4,6 +4,8 @@ public class Doodad {
     int id;
     String name;
 
+    public Doodad(){}
+
     public Doodad(int id, String name){
         this.id = id;
         this.name = name;

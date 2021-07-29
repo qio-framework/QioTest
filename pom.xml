@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>dev.j2ee</groupId>
 	<artifactId>qio-test</artifactId>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<version>0.1-SNAPSHOT</version>
 
 	<name>QioTest</name>
@@ -38,6 +38,11 @@
 			<version>4.0.1</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -46,14 +51,33 @@
 		<defaultGoal>package</defaultGoal>
         <finalName>${project.artifactId}-${project.version}</finalName>
 		<plugins>
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-surefire-plugin</artifactId>-->
+<!--				<version>3.0.0-M5</version>-->
+<!--				<configuration>-->
+<!--					<includes>-->
+<!--						<include>**/*.java</include>-->
+<!--					</includes>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M5</version>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
 				<configuration>
-					<includes>
-						<include>**/*.java</include>
-					</includes>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.4.20.v20190813</version>
+
+				<configuration>
+					<webApp>
+						<contextPath>/q</contextPath>
+					</webApp>
 				</configuration>
 			</plugin>
 		</plugins>
