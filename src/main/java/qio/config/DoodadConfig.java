@@ -24,8 +24,8 @@ public class DoodadConfig {
     String dbDriver;
 
     @Dependency
-    public Doodad doodadUno(){
-        return new Doodad("Doodad Uno!");
+    public Doodad doodad(){
+        return new Doodad(1,"Doodad Uno!");
     }
 
     @Dependency

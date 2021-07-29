@@ -4,7 +4,8 @@ public class Doodad {
     int id;
     String name;
 
-    public Doodad(String name){
+    public Doodad(int id, String name){
+        this.id = id;
         this.name = name;
     }
 

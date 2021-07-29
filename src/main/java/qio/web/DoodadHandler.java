@@ -16,13 +16,11 @@ public class DoodadHandler {
     @Inject
     DoodadService doodadService;
 
-    @Get("/object/{{doodad}}/{{id}}")
+    @Get("/objects")
     public String getThing(HttpServletRequest req,
                             HttpServletResponse resp,
-                            ResponseData data,
-                            @Variable String doodad,
-                            @Variable Integer id){
-        return doodadService.getThing(id, doodad, data);
+                            ResponseData data){
+        return doodadService.getObject(data);
     }
 
 

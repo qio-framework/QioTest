@@ -1,5 +1,5 @@
 ### Db Settings ###
-db.url=jdbc:h2:~/.qio-starter
+db.url=jdbc:h2:~/.qio-test
 db.driver=org.h2.Driver
 db.user=sa
 db.pass=
