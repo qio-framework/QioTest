@@ -1,4 +1,4 @@
-#  Qio Trial 
+#  QioTest 
 
-## A cute testing scaffold for Qio
+A testing scaffold for Qio
 
