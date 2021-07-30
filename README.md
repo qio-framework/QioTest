@@ -1,5 +1,6 @@
 #  QioTest 
 
+A testing scaffold for Qio
 
 ### Requirements
 
@@ -7,21 +8,19 @@
 * Maven
 
 
-A testing scaffold for Qio
-
-* Clone the QioTodo project:
+1. Clone the QioTodo project:
 
 ```
 git clone https://github.com/qio-framework/QioTodo.git
 ```
-* Run QioTodo in the background
+2. Run QioTodo in the background
 ```
 mvn package jetty:run
 ```
 
-* Clone this project...
-* Download/Update the web driver, expecting to be in homedir/WebDriver/* see `src/main/test/qio/QioTodoTest.java` for driver setup.
-* Run tests by running following command:
+3. Clone this project...
+4. Download/Update the web driver, expecting to be in homedir/WebDriver/* see `src/main/test/qio/QioTodoTest.java` for driver setup.
+5. Run tests by running following command:
 
 ```
 mvn test
