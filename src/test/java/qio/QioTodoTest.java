@@ -18,7 +18,7 @@ public class QioTodoTest {
 
     @BeforeAll
     protected void setUp() {
-        System.setProperty("webdriver.chrome.driver", "/Users/mcroteau/WebDrivers/Chrome/chromedriver");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.home") + "/WebDrivers/Chrome/chromedriver");
         browser = new ChromeDriver();
     }
 
@@ -36,6 +36,49 @@ public class QioTodoTest {
         WebElement helloElement = browser.findElement(new By.ById("todos-href"));
         helloElement.click();
         assertTrue((BASE_URI + "/todos").equals(browser.getCurrentUrl()));
+    }
+
+    @Test
+    public void ctestSave(){
+        browser.get(BASE_URI+ "/todos/create");
+
+        WebElement titleInput = browser.findElement(new By.ById("title"));
+        titleInput.sendKeys("Complete testing!");
+
+        WebElement saveButton = browser.findElement(new By.ById("save"));
+        saveButton.click();
+
+        WebElement todo = browser.findElement(new By.ById("todo-4"));
+        System.out.println("u" + todo.getText());
+        assertTrue("Complete testing!".equals(todo.getText()));
+    }
+
+    @Test
+    public void dtestUpdate() throws Exception {
+        browser.get(BASE_URI + "/todos/edit/1");
+
+        WebElement titleInput = browser.findElement(new By.ById("title"));
+
+        titleInput.clear();
+        titleInput.sendKeys("Exercise. Yes!");
+
+        WebElement updateButton = browser.findElement(new By.ById("update"));
+        updateButton.click();
+
+        browser.get(BASE_URI + "/todos/edit/1");
+        WebElement titleInputDos = browser.findElement(new By.ById("title"));
+        assertTrue("Exercise. Yes!".equals(titleInputDos.getAttribute("value")));
+    }
+
+    @Test
+    public void ftestDelete(){
+        browser.get(BASE_URI + "/todos");
+
+        WebElement deleteBtn = browser.findElement(new By.ById("delete-2"));
+        deleteBtn.click();
+
+        WebElement count = browser.findElement(new By.ById("count"));
+        assertTrue("3".equals(count.getText()));
     }
 
     @AfterAll
