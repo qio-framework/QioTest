@@ -8,6 +8,8 @@ A testing scaffold for Qio
 * Maven
 
 
+### Steps
+
 1. Clone the QioTodo project:
 
 ```
