@@ -37,19 +37,19 @@ public class QioTest {
 
     @AfterAll
     public void tearDown() throws Exception {
-        DbMediator dbMediator = (DbMediator) qio.getBean("dbmediator");
+        DbMediator dbMediator = (DbMediator) qio.getElement("dbmediator");
         dbMediator.dropDb();
     }
 
     @Test
     public void injectionTest(){
-        Thingamabob thingamabob = (Thingamabob) qio.getBean("thingamabob");
+        Thingamabob thingamabob = (Thingamabob) qio.getElement("thingamabob");
         assertNotNull(thingamabob.getDoodad());
     }
 
     @Test
     public void persistenceTest(){
-        DoodadRepo doodadRepo = (DoodadRepo) qio.getBean("doodadrepo");
+        DoodadRepo doodadRepo = (DoodadRepo) qio.getElement("doodadrepo");
         Doodad doodad = new Doodad(1, "Doodad Une!");
         doodadRepo.save(doodad);
         assertTrue(doodadRepo.getCount() == 1);
@@ -57,13 +57,13 @@ public class QioTest {
 
     @Test
     public void yListTest(){
-        DoodadRepo doodadRepo = (DoodadRepo) qio.getBean("doodadrepo");
+        DoodadRepo doodadRepo = (DoodadRepo) qio.getElement("doodadrepo");
         assertTrue(doodadRepo.getList().size() == 1);
     }
 
     @Test
     public void zListTest(){
-        DoodadRepo doodadRepo = (DoodadRepo) qio.getBean("doodadrepo");
+        DoodadRepo doodadRepo = (DoodadRepo) qio.getElement("doodadrepo");
         doodadRepo.delete(1);
         assertTrue(doodadRepo.getList().size() == 0);
     }

@@ -18,7 +18,7 @@
 		<dependency>
 			<groupId>dev.j2ee</groupId>
 			<artifactId>qio</artifactId>
-			<version>0.4</version>
+			<version>0.5-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
